@@ -1,0 +1,43 @@
+{
+   "general":{
+      "package":"pihole-docker",
+      "name":"Pi-hole",
+      "version":"5.0.r01",
+      "depends":[
+         "docker-ce(>=18.03.1.r1)"
+      ],
+      "conflicts":[],
+      "developer":"Pi-hole",
+      "maintainer":"cheehoong",
+      "email":"lechho@gmail.com",
+      "website":"https://github.com/pi-hole/docker-pi-hole",
+      "architecture":"x86-64",
+      "firmware":"3.0.0"
+    },
+    "adm-desktop": {
+		"app": {
+			"port": 3001,
+			"protocol": "http",
+			"type": "custom",
+			"url": "/" 
+		},
+		"privilege": {
+			"accessible": "administrators", 
+			"customizable": true 
+		} 
+                 
+    },
+    "register":{
+		"share-folder":[
+			{
+				"name":"Docker",
+				"description":"Data and files directory for Docker Apps"
+            }         	
+		],
+		"boot-priority":{
+			"start-order":60,
+			"stop-order":40
+		},
+        "port":["3001"]
+    }
+}

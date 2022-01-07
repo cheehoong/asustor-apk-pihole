@@ -1,0 +1,47 @@
+#!/bin/sh
+
+echo "start-stop"
+
+CONTAINER_NAME=pihole
+ 
+case "$1" in
+    start)
+        echo "Start $CONTAINER_NAME container..."
+		
+# Note: ServerIP should be replaced with your external ip.
+docker run -d \
+    --name pihole \
+    -p 53:53/tcp -p 53:53/udp \
+    -e TZ="Asia/Singapore" \
+    -v "$(pwd)/etc-pihole/:/etc/pihole/" \
+    -v "$(pwd)/etc-dnsmasq.d/:/etc/dnsmasq.d/" \
+    --dns=127.0.0.1 --dns=8.8.8.8 \
+    --restart=unless-stopped \
+    --hostname pi.hole \
+    -e VIRTUAL_HOST="192.168.31.10" \
+    -e ServerIP="192.168.31.20" \
+    -e WEB_PORT=3001\
+    -e WEBPASSWORD=qwerty1234\
+    pihole/pihole:latest
+
+        sleep 6 
+                        
+        ;;
+    stop)
+    	echo "Stop $CONTAINER_NAME container..."
+    	docker stop $CONTAINER_NAME
+    	sleep 6
+        ;;
+    reload)
+    	echo "Reload $CONTAINER_NAME container..."
+    	docker stop  $CONTAINER_NAME
+    	sleep 6
+    	docker start $CONTAINER_NAME
+    	sleep 6
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|reload}"
+        exit 1
+        ;;
+esac
+exit 0
