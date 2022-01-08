@@ -2,7 +2,7 @@
    "general":{
       "package":"pihole-docker",
       "name":"Pi-hole",
-      "version":"5.0.r01",
+      "version":"v5.8.1.r01",
       "depends":[
          "docker-ce(>=18.03.1.r1)"
       ],
@@ -10,9 +10,9 @@
       "developer":"Pi-hole",
       "maintainer":"cheehoong",
       "email":"lechho@gmail.com",
-      "website":"https://github.com/pi-hole/docker-pi-hole",
+      "website":"https://github.com/cheehoong/asustor-apk-pihole",
       "architecture":"x86-64",
-      "firmware":"3.0.0"
+      "firmware":"4.0.0"
     },
     "adm-desktop": {
 		"app": {

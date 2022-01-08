@@ -2,13 +2,13 @@
 
 WEBPASSWORD=pihole
 WEB_PORT=3001
-ServerIP=$AS_NAS_INET4_ADDR_0
+ServerIP=$AS_NAS_INET4_IP1
 LOGGING=$APKG_PKG_DIR/log.txt
 
-if [ ! -z $AS_NAS_INET4_ADDR_0 ]; then
-	ServerIP=$AS_NAS_INET4_ADDR_0
+if [ ! -z $AS_NAS_INET4_IP1 ]; then
+	ServerIP=$AS_NAS_INET4_IP1
 else
-	ServerIP=$AS_NAS_INET4_ADDR_1
+	ServerIP=$AS_NAS_INET4_IP2
 fi
 
 cd /usr/local/AppCentral/pihole-docker/CONTROL/
