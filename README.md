@@ -1,6 +1,6 @@
 # asustor-apk-pihole
  
-![Pi-hole](https://wp-cdn.pi-hole.net/wp-content/uploads/2016/12/Vortex-R.webp = 250x250)
+<img src="https://wp-cdn.pi-hole.net/wp-content/uploads/2016/12/Vortex-R.webp" width="100" height="100">
 
 Docker Pi-hole for Asustor
 
