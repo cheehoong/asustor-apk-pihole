@@ -33,9 +33,14 @@ case "$APKG_PKG_STATUS" in
 		;;
 esac
 
+printf "OLD_CONF" > $LOGGING
 printf "$OLD_CONF" > $LOGGING
-printf "AS_NAS_INET4_IP1$AS_NAS_INET4_IP1" > $LOGGING
-printf "AS_NAS_INET4_IP2$AS_NAS_INET4_IP2" > $LOGGING
+printf "IP1" > $LOGGING
+printf "$AS_NAS_INET4_IP1" > $LOGGING
+printf "IP2" > $LOGGING
+printf "$AS_NAS_INET4_IP2" > $LOGGING
+printf "ADDR_0" > $LOGGING
+printf "$AS_NAS_INET4_ADDR_0" > $LOGGING
 printf "111" > /share/Docker/pihole-docker/etc-dnsmasq.d/111.log
 
 if [ ! -z $AS_NAS_INET4_IP1 ]; then
