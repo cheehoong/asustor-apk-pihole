@@ -25,23 +25,23 @@ case "$APKG_PKG_STATUS" in
 	upgrade)
 		# Make sure configuration directory exists
 		if [ ! -d "$OLD_CONF" ]; then
-			cp "$OLD_CONF/etc-pihole" $PIHOLE_FOLDER
-			cp "$OLD_CONF/etc-dnsmasq.d" $PIHOLE_FOLDER
+			cp -r "$OLD_CONF/etc-pihole" $PIHOLE_FOLDER
+			cp -r "$OLD_CONF/etc-dnsmasq.d" $PIHOLE_FOLDER
 		fi
 		;;
 	*)
 		;;
 esac
 
-printf "OLD_CONF" >> $LOGGING
+printf "OLD_CONF\n" >> $LOGGING
 printf "$OLD_CONF" >> $LOGGING
-printf "IP1" >> $LOGGING
+printf "IP1\n" >> $LOGGING
 printf "$AS_NAS_INET4_IP1" >> $LOGGING
-printf "IP2" >> $LOGGING
+printf "IP2\n" >> $LOGGING
 printf "$AS_NAS_INET4_IP2" >> $LOGGING
-printf "ADDR_0" >> $LOGGING
+printf "ADDR_0\n" >> $LOGGING
 printf "$AS_NAS_INET4_ADDR_0" >> $LOGGING
-printf "111" >> /share/Docker/pihole-docker/etc-dnsmasq.d/111.log
+printf "111\n" >> /share/Docker/pihole-docker/etc-dnsmasq.d/111.log
 
 if [ ! -z $AS_NAS_INET4_IP1 ]; then
 	ServerIP=$AS_NAS_INET4_IP1
