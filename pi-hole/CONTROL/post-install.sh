@@ -6,9 +6,8 @@ ServerIP=$AS_NAS_INET4_IP1
 PIHOLE_FOLDER=/share/Docker/$APKG_PKG_NAME
 PIHOLE_CONF=$PIHOLE_FOLDER/etc-pihole
 PIHOLE_CONF1=$PIHOLE_FOLDER/etc-dnsmasq.d
-LOGGING=$PIHOLE_FOLDER/log.txt
-printf "111" > $LOGGING
 OLD_CONF=$APKG_PKG_DIR/$APKG_PKG_NAME
+LOGGING=$PIHOLE_FOLDER/log.txt
 
 case "$APKG_PKG_STATUS" in
 	install)
@@ -33,6 +32,8 @@ case "$APKG_PKG_STATUS" in
 	*)
 		;;
 esac
+
+printf "111" > $LOGGING
 
 if [ ! -z $AS_NAS_INET4_IP1 ]; then
 	ServerIP=$AS_NAS_INET4_IP1
