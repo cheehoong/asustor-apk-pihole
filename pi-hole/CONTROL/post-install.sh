@@ -7,12 +7,11 @@ PIHOLE_FOLDER=/share/Docker/$APKG_PKG_NAME
 LOGGING=$PIHOLE_FOLDER/log.txt
 
 printf "IP1\n" >> $LOGGING
-printf "$AS_NAS_INET4_IP1" >> $LOGGING
+printf "$AS_NAS_INET4_IP1\n" >> $LOGGING
 printf "IP2\n" >> $LOGGING
-printf "$AS_NAS_INET4_IP2" >> $LOGGING
+printf "$AS_NAS_INET4_IP2\n" >> $LOGGING
 printf "ADDR_0\n" >> $LOGGING
-printf "$AS_NAS_INET4_ADDR_0" >> $LOGGING
-printf "111\n" >> /share/Docker/pihole-docker/etc-dnsmasq.d/111.log
+printf "$AS_NAS_INET4_ADDR_0\n" >> $LOGGING
 
 if [ ! -z $AS_NAS_INET4_IP1 ]; then
 	ServerIP=$AS_NAS_INET4_IP1

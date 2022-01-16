@@ -39,6 +39,6 @@ case "$APKG_PKG_STATUS" in
 esac
 
 printf "OLD_CONF\n" >> $LOGGING
-printf "$OLD_CONF" >> $LOGGING
+printf "$OLD_CONF\n" >> $LOGGING
 
 docker pull pihole/pihole
