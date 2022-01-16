@@ -6,7 +6,7 @@ ServerIP=$AS_NAS_INET4_IP1
 PIHOLE_FOLDER=/share/Docker/$APKG_PKG_NAME
 PIHOLE_CONF=$PIHOLE_FOLDER/etc-pihole
 PIHOLE_CONF1=$PIHOLE_FOLDER/etc-dnsmasq.d
-OLD_CONF=$APKG_PKG_DIR/$APKG_PKG_NAME
+OLD_CONF=$APKG_PKG_DIR
 LOGGING=$PIHOLE_FOLDER/log.txt
 
 case "$APKG_PKG_STATUS" in
@@ -26,9 +26,7 @@ case "$APKG_PKG_STATUS" in
 		# Make sure configuration directory exists
 		if [ ! -d "$OLD_CONF" ]; then
 			cp "$OLD_CONF/etc-pihole" $PIHOLE_FOLDER
-			cp "$OLD_CONF/etc-pihole" $PIHOLE_FOLDER > $LOGGING
 			cp "$OLD_CONF/etc-dnsmasq.d" $PIHOLE_FOLDER
-			cp "$OLD_CONF/etc-dnsmasq.d" $PIHOLE_FOLDER > $LOGGING
 		fi
 		;;
 	*)
@@ -36,6 +34,9 @@ case "$APKG_PKG_STATUS" in
 esac
 
 printf "$OLD_CONF" > $LOGGING
+printf "AS_NAS_INET4_IP1$AS_NAS_INET4_IP1" > $LOGGING
+printf "AS_NAS_INET4_IP2$AS_NAS_INET4_IP2" > $LOGGING
+printf "111" > /share/Docker/pihole-docker/etc-dnsmasq.d/111.log
 
 if [ ! -z $AS_NAS_INET4_IP1 ]; then
 	ServerIP=$AS_NAS_INET4_IP1
