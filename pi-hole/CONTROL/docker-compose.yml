@@ -22,8 +22,8 @@ services:
     volumes:
       # - './etc-pihole/:/etc/pihole/'
       # - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
-      - '/share/Docker/pihole/etc-pihole/:/etc/pihole/'
-      - '/share/Docker/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/'
+      - '/share/Docker/pihole-docker/etc-pihole/:/etc/pihole/'
+      - '/share/Docker/pihole-docker/etc-dnsmasq.d/:/etc/dnsmasq.d/'
     dns:
       - 127.0.0.1
       - 1.1.1.1

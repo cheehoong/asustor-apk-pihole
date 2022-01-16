@@ -3,7 +3,36 @@
 WEBPASSWORD=pihole
 WEB_PORT=3001
 ServerIP=$AS_NAS_INET4_IP1
-LOGGING=$APKG_PKG_DIR/log.txt
+PIHOLE_FOLDER=/share/Docker/$APKG_PKG_NAME
+PIHOLE_CONF=$PIHOLE_FOLDER/etc-pihole
+PIHOLE_CONF1=$PIHOLE_FOLDER/etc-dnsmasq.d
+LOGGING=$PIHOLE_FOLDER/log.txt
+printf "111" > $LOGGING
+OLD_CONF=$APKG_PKG_DIR/$APKG_PKG_NAME
+
+case "$APKG_PKG_STATUS" in
+	install)
+		# Make sure configuration directory exists
+		if [ ! -d "$PIHOLE_FOLDER" ]; then
+			mkdir "$PIHOLE_FOLDER"
+		fi
+
+		# Make sure configuration directory exists
+		if [ ! -d "$PIHOLE_CONF" ]; then
+			mkdir "$PIHOLE_CONF"
+			mkdir "$PIHOLE_CONF1"
+		fi
+		;;
+	upgrade)
+		# Make sure configuration directory exists
+		if [ ! -d "$OLD_CONF" ]; then
+			cp "$OLD_CONF/etc-pihole" $PIHOLE_FOLDER
+			cp "$OLD_CONF/etc-dnsmasq.d" $PIHOLE_FOLDER
+		fi
+		;;
+	*)
+		;;
+esac
 
 if [ ! -z $AS_NAS_INET4_IP1 ]; then
 	ServerIP=$AS_NAS_INET4_IP1
