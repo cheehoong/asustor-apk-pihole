@@ -26,14 +26,16 @@ case "$APKG_PKG_STATUS" in
 		# Make sure configuration directory exists
 		if [ ! -d "$OLD_CONF" ]; then
 			cp "$OLD_CONF/etc-pihole" $PIHOLE_FOLDER
+			cp "$OLD_CONF/etc-pihole" $PIHOLE_FOLDER > $LOGGING
 			cp "$OLD_CONF/etc-dnsmasq.d" $PIHOLE_FOLDER
+			cp "$OLD_CONF/etc-dnsmasq.d" $PIHOLE_FOLDER > $LOGGING
 		fi
 		;;
 	*)
 		;;
 esac
 
-printf "111" > $LOGGING
+printf "$OLD_CONF" > $LOGGING
 
 if [ ! -z $AS_NAS_INET4_IP1 ]; then
 	ServerIP=$AS_NAS_INET4_IP1
