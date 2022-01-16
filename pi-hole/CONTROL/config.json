@@ -2,9 +2,9 @@
    "general":{
       "package":"pihole-docker",
       "name":"Pi-hole",
-      "version":"v5.8.1.r01",
+      "version":"v5.8.1.r02",
       "depends":[
-         "docker-ce(>=18.03.1.r2)"
+         "docker-ce(>=18.03.1.r1)"
       ],
       "conflicts":[],
       "developer":"Pi-hole",
