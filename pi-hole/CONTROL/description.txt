@@ -7,5 +7,5 @@ REMEMBER !!! to change your router DNS = your Asustor ip address.
 Notes:
 1. The docker version is maintained by https://pi-hole.net/.
 2. Best use with Chrome extensions "Switch for PiHole"
-3. Do not install together Adguard-home. Port conflick.
+3. Do not install together Adguard-home. Port conflict.
 4. DHCP function never tested.
