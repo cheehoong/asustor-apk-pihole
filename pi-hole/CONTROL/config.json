@@ -4,7 +4,7 @@
       "name":"Pi-hole",
       "version":"v5.14.2.r01",
       "depends":[
-         "docker-ce(>=18.03.1.r1)"
+         "docker-ce(>=20.10.2.r2)"
       ],
       "conflicts":[],
       "developer":"Pi-hole",
