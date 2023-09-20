@@ -1,3 +1,4 @@
 2020-05-22 - v5.0.r01 - 1st release port to ADM
 2022-01-08 - v5.8.1.r01 - update to ADM 4.0
 2023-01-21 - v5.14.2.r01 - add ARM support
+2023-09-21 - v5.17.1.r01 - add DNSMASQ_USER
